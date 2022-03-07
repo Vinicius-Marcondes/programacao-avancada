@@ -1,3 +1,0 @@
-C:/Users/vinic/OneDrive/Documents/Faculdade/5 periodo/1_bim/programacao-avancada/ed-01/cmake-build-debug/CMakeFiles/ed_01.dir
-C:/Users/vinic/OneDrive/Documents/Faculdade/5 periodo/1_bim/programacao-avancada/ed-01/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/vinic/OneDrive/Documents/Faculdade/5 periodo/1_bim/programacao-avancada/ed-01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
