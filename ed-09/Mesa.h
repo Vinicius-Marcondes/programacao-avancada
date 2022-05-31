@@ -4,7 +4,7 @@
 
 class Mesa {
 public:
-    Mesa(int id, bool emUso, const Conta &conta) : _id(id), _emUso(emUso), conta(conta) {}
+    Mesa(int id, bool emUso, const Conta &conta) : _id(id), _emUso(emUso), _conta(conta) {}
 
     int getId() const {
         return _id;
@@ -23,15 +23,15 @@ public:
     }
 
     const Conta &getConta() const {
-        return conta;
+        return _conta;
     }
 
     void setConta(const Conta &conta) {
-        Mesa::conta = conta;
+        Mesa::_conta = conta;
     }
 
 private:
     int _id;
     bool _emUso;
-    Conta conta;
+    Conta _conta;
 };

@@ -1,12 +1,16 @@
 #pragma once
 
-#include <string>
+#include <ostream>
+#include <vector>
 
 class Item {
 public:
-    Item(int id, float preco, std::string **igredientes, const std::string &descricao, int quantidade, bool unidade)
-            : _id(id), _preco(preco), _ingrediente(igredientes), _descricao(descricao), _quantidade(quantidade),
-              _unidade(unidade) {}
+    Item(int id, float preco, std::vector<std::string> &ingredientes, const std::string &descricao,
+         bool unidade) : _id(id), _preco(preco), _ingredientes(ingredientes), _descricao(descricao),
+                         _unidade(unidade) {}
+
+    Item(int id, float preco, const std::string &descricao,
+         bool unidade) : _id(id), _preco(preco), _descricao(descricao), _unidade(unidade), _ingredientes() {}
 
     int getId() const {
         return _id;
@@ -24,12 +28,12 @@ public:
         _preco = preco;
     }
 
-    std::string **getIgredientes() const {
-        return _ingrediente;
+    std::vector<std::string> getIgredientes() const {
+        return _ingredientes;
     }
 
-    void setIgredientes(std::string **igredientes) {
-        _ingrediente = igredientes;
+    void setIgredientes(std::vector<std::string> &igredientes) {
+        _ingredientes = igredientes;
     }
 
     const std::string &getDescricao() const {
@@ -40,14 +44,6 @@ public:
         _descricao = descricao;
     }
 
-    int getQuantidade() const {
-        return _quantidade;
-    }
-
-    void setQuantidade(int quantidade) {
-        _quantidade = quantidade;
-    }
-
     bool isUnidade() const {
         return _unidade;
     }
@@ -56,11 +52,26 @@ public:
         _unidade = unidade;
     }
 
+    friend std::ostream &operator<<(std::ostream &os, const Item &item) {
+        os << "Id: " << item._id << std::endl
+           << "Preco: " << item._preco << std::endl
+           << "Ingredientes: ";
+
+        for (const std::string &ingrediente : item._ingredientes) {
+            os << ingrediente;
+        }
+
+        os << std::endl;
+        os << "Descricao: " << item._descricao << std::endl
+           << "Unidade: " << (item._unidade ? "g" : "ml");
+
+        return os;
+    }
+
 private:
     int _id;
     float _preco;
-    std::string** _ingrediente;
+    std::vector<std::string> _ingredientes;
     std::string _descricao;
-    int _quantidade;
     bool _unidade; // 0 == ml, 1 == g
 };

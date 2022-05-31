@@ -6,7 +6,7 @@
 #include "Mesa.h"
 #include "Pedido.h"
 
-class TelaMesaa {
+class TelaMesa {
 public:
     void exibirMenuPrincipal() const {
         std::cout << "== Menu principal ==" << std::endl;
@@ -24,18 +24,5 @@ public:
         std::getline(std::cin, buffer);
 
         return opcao;
-    }
-
-    void imprimirConta(const Conta &conta) {
-        float total = 0;
-        std::cout << "Conta mesa: " << conta.getMesaId() << std::endl;
-        std::cout << "Pedidos: " << std::endl;
-
-        for (const Pedido &pedido : conta.getPedidos()) {
-            std::cout << pedido.getItem() << std::endl;
-            total += pedido.getItem()->getPreco() * pedido.getItem()->getQuantidade();
-        }
-
-        std::cout << "Total: " << total << std::endl;
     }
 };
