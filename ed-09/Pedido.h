@@ -5,17 +5,13 @@
 
 class Pedido {
 public:
-    Pedido() {
-        _item = nullptr;
-    }
+    Pedido(Item &item, const std::string &status) : _item(item), _status(status) {}
 
-    Pedido(Item *item, const std::string &status) : _item(item), _status(status) {}
-
-    Item *getItem() const {
+    Item getItem() const {
         return _item;
     }
 
-    void setItem(Item *item) {
+    void setItem(Item &item) {
         _item = item;
     }
 
@@ -28,6 +24,6 @@ public:
     }
 
 private:
-    Item* _item;
+    Item _item;
     std::string _status;
 };

@@ -26,12 +26,12 @@ public:
         return opcao;
     }
 
-    void imprimirConta(const Conta conta) const {
+    void imprimirConta(const Conta &conta) {
         float total = 0;
         std::cout << "Conta mesa: " << conta.getMesaId() << std::endl;
         std::cout << "Pedidos: " << std::endl;
 
-        for (auto pedido : conta.getPedidos()) {
+        for (const Pedido &pedido : conta.getPedidos()) {
             std::cout << pedido.getItem() << std::endl;
             total += pedido.getItem()->getPreco() * pedido.getItem()->getQuantidade();
         }
