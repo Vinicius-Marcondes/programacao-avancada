@@ -12,6 +12,8 @@ public:
     Item(int id, float preco, const std::string &descricao,
          bool unidade) : _id(id), _preco(preco), _descricao(descricao), _unidade(unidade), _ingredientes() {}
 
+	Item(){};
+
     int getId() const {
         return _id;
     }
@@ -57,9 +59,9 @@ public:
            << "Preco: " << item._preco << std::endl
            << "Ingredientes: ";
 
-        for (const std::string &ingrediente : item._ingredientes) {
-            os << ingrediente;
-        }
+        //for (const std::string &ingrediente : item._ingredientes) {
+        //    os << ingrediente;
+        //}
 
         os << std::endl;
         os << "Descricao: " << item._descricao << std::endl

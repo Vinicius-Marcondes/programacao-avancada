@@ -1,6 +1,10 @@
 #include <iostream>
 
+#include "ControlePedido.h"
+#include "Mesa.h"
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    ControlePedido controle;
+    controle.realizarPedido();
     return 0;
 }

@@ -2,6 +2,7 @@
 
 #include "TelaPedido.h"
 #include "Pedido.h"
+#include "Item.h"
 #include "Mesa.h"
 #include <vector>
 
@@ -25,13 +26,16 @@ public:
             // Tratamento da opção
             switch (opcao) {
                 case 1:
-                	std::cout << "Escreva o numero referente ao seu pedido: " << std::endl;
+                	std::cout << std::endl;
+                	std::cout << "== Cardapio ==" << std::endl;
+                	std::cout << std::endl;
                     cardapio();
-                    //TODO: Verificar se é necesário chamar o pedido novamente
                     realizarPedido();
                     break;
                 case 2:
-                	std::cout << "Escreva o numero referente ao seu pedido: " << std::endl;
+                	std::cout << std::endl;
+                	std::cout << "== Escreva o numero referente ao seu pedido: ==" << std::endl;
+                	std::cout << std::endl;
                 	cardapio();
                     break;
             }
@@ -46,11 +50,23 @@ public:
             
             double totalPedido = obterTotalPedido(opcaoPedido, qtdPedido);
             
-            std::cout <<  " Seu pedido deu R$ " << totalPedido << std::endl;
+            std::cout <<  "Seu pedido deu R$ " << totalPedido << std::endl;
             
-            Pedido pedido = new Pedido()
+            //TODO: Verificar a maneira de receber o Pedido
+            Pedido pedido;
+            {
+            	
+            	Item item;
             
-            return totalPedido
+	            
+	            
+	            pedido.setItem(item);
+	            pedido.setQuantidade(qtdPedido);
+	            
+	            std::cout <<  pedido.getQuantidade() << "::" << pedido.getItem() << std::endl;
+            
+			}
+            return pedido;
         }
     }
     

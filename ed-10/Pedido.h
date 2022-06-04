@@ -6,6 +6,8 @@
 class Pedido {
 public:
     Pedido(Item &item, int quantidade) : _item(item), _quantidade(quantidade) {}
+    
+    Pedido(){};
 
     Item getItem() const {
         return _item;
@@ -15,7 +17,7 @@ public:
         _item = item;
     }
     
-   	int getQuantidade() const {
+   	int getQuantidade(){
         return _quantidade;
     }
 
