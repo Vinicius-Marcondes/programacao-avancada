@@ -6,27 +6,26 @@
 class Conta {
 public:
 
-    Conta(int mesaId) : _pedidos() {
+    Conta(int mesaId) : _mesaId(mesaId), _pedidos() {
+    }
+
+    int getMesaId() const {
+        return _mesaId;
+    }
+
+    void setMesaId(int mesaId) {
+        _mesaId = mesaId;
     }
 
     const std::vector<Pedido> &getPedidos() const {
         return _pedidos;
     }
 
-    void adicionaPedido(const Pedido &pedido) {
+    void adicionaPedido(Pedido &pedido) {
         _pedidos.push_back(pedido);
     }
 
-    float getTotal() const {
-        float total = 0;
-
-        for (const Pedido &pedido : _pedidos) {
-            total += pedido.getItem() * pedido.getQuantidade();
-        }
-
-        return total;
-    }
-
 private:
+    int _mesaId;
     std::vector<Pedido> _pedidos;
 };

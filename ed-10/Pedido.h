@@ -5,7 +5,7 @@
 
 class Pedido {
 public:
-    Pedido(Item &item, const std::string &status) : _item(item), _status(status) {}
+    Pedido(Item &item, int quantidade) : _item(item), _quantidade(quantidade) {}
 
     Item getItem() const {
         return _item;
@@ -14,16 +14,16 @@ public:
     void setItem(Item &item) {
         _item = item;
     }
-
-    const std::string &getStatus() const {
-        return _status;
+    
+   	int getQuantidade() const {
+        return _quantidade;
     }
 
-    void setStatus(const std::string &status) {
-        _status = status;
+    void setQuantidade(int quantidade) {
+        _quantidade = quantidade;
     }
 
 private:
     Item _item;
-    std::string _status;
+    int _quantidade;
 };
