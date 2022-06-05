@@ -15,17 +15,10 @@ public:
 	Item(){};
 
     friend std::ostream& operator<<(std::ostream &out, const Item &item) {
-        out << "Id: " << item._id << std::endl
-            << "Preco: " << item._preco << std::endl
-            << "Ingredientes: ";
-
-        //for (const std::string &ingrediente : item._ingredientes) {
-        //    os << ingrediente;
-        //}
-
-        out << std::endl;
-        out << "Descricao: " << item._descricao << std::endl
-            << "Unidade: " << (item._unidade ? "g" : "ml");
+        out << item._id
+            << ";" << item._preco
+            << ";" << item._descricao
+            << "; " << (item._unidade ? "g" : "ml");
 
         return out;
     }
