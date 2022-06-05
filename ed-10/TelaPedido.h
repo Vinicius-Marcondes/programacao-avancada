@@ -9,8 +9,12 @@
 
 class TelaPedido {
 public:
-  	
-	void exibirMenuPrincipal() const {
+
+    TelaPedido() {}
+
+    ~TelaPedido() {}
+
+    void exibirMenuPrincipal() const {
 		std::cout << std::endl;
         std::cout << "== Menu principal ==" << std::endl;
         std::cout << std::endl;
@@ -35,7 +39,7 @@ public:
     
     int cardapio() {
     	
-    	int opcao;
+    	int opcao = 0;
     	
         std::cout << item1 << " R$" << precoItem1 << std::endl;
         std::cout << item2 << " R$" << precoItem2 << std::endl;
@@ -48,7 +52,6 @@ public:
     }
     
 private:
-    	
    	const std::string item1 = "1. Pizza        :";
    	const std::string item2 = "2. Hamburguer   :";
    	const std::string item3 = "3. Batata Frita :";
@@ -58,5 +61,4 @@ private:
    	const double precoItem2 = 25.00;
    	const double precoItem3 = 20.00;
    	const double precoItem4 = 10.00;
-   	
 };

@@ -5,9 +5,8 @@
 #include "Conta.h"
 
 class TelaConta {
-    void imprimirConta(const Conta &conta) {
-        float total = 0;
-        std::cout << "Conta mesa: " << conta.getMesaId() << std::endl;
+public:
+    void imprimirConta(const Conta &conta) const {
         std::cout << "Pedidos: " << std::endl;
 
         for (const Pedido &pedido : conta.getPedidos()) {
@@ -17,8 +16,21 @@ class TelaConta {
         std::cout << "Total: " << conta.getTotal() << std::endl;
     }
 
-    void imprimirFecharConta(const Conta &conta) {
+    bool imprimirFecharConta(const Conta &conta) const {
+        int token;
         std::cout << "Total pago: R$" << conta.getTotal();
         std::cout << "Insira o token do garçom:" << conta.getTotal();
+        std::cin >> token;
+
+        return token == Conta::getToken();
     }
+
+    void imprimirAgradecimento() const {
+        std::cout << "Obrigado pela preferência, volte sempre!" << std::endl;
+    }
+
+    void _imprimirTokenInvalido() const {
+        std::cout << "Atenção! Token invalido!" << std::endl;
+    }
+private:
 };

@@ -8,22 +8,18 @@
 
 class ControlePedido {
 public:
-    ControlePedido(): _tela(TelaPedido()),
-                       _pedidos() {
-            // vazio
-    }
+    ControlePedido(): _tela(), _pedidos() {}
 
     Pedido realizarPedido() {
 
         while (true) {
-
             // Exibir o menu principal
             _tela.exibirMenuPrincipal();
 
-            // Usu·rio escolhe uma opÁ„o
+            // Usu√°rio escolhe uma op√ß√£o
             int opcao = _tela.lerOpcao();
 
-            // Tratamento da opÁ„o
+            // Tratamento da op√ß√£o
             switch (opcao) {
                 case 1:
                 	std::cout << std::endl;
@@ -39,11 +35,10 @@ public:
                 	cardapio();
                     break;
             }
-            
+
+            // Usu√°rio escolhe uma op√ß√£o
             int opcaoPedido = _tela.lerOpcao();
-            
-            // Usu·rio escolhe uma opÁ„o
-            
+
             obterQuantidade();
             
             int qtdPedido = _tela.lerOpcao();
@@ -53,13 +48,9 @@ public:
             std::cout <<  "Seu pedido deu R$ " << totalPedido << std::endl;
             
             //TODO: Verificar a maneira de receber o Pedido
-            Pedido pedido;
+            Pedido pedido = Pedido();
             {
-            	
             	Item item;
-            
-	            
-	            
 	            pedido.setItem(item);
 	            pedido.setQuantidade(qtdPedido);
 	            
